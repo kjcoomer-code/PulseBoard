@@ -26,33 +26,46 @@ body {
     linear-gradient(180deg, #f9f3e8 0%, var(--bg) 50%, #efe4cf 100%);
 }
 
-.page-shell {
-  width: min(1180px, calc(100vw - 32px));
-  margin: 0 auto;
-  padding: 32px 0 48px;
+.hidden {
+  display: none !important;
 }
 
-.hero {
+.auth-screen {
+  min-height: 100vh;
   display: grid;
-  grid-template-columns: 1.7fr 1fr;
-  gap: 20px;
-  align-items: stretch;
-  margin-bottom: 22px;
+  place-items: center;
+  padding: 20px;
 }
 
+.auth-card,
 .hero-copy,
 .hero-card,
 .panel,
-.stat-card {
+.stat-card,
+.app-topbar {
   border: 1px solid rgba(255, 255, 255, 0.45);
   background: var(--panel);
   backdrop-filter: blur(14px);
   box-shadow: var(--shadow);
 }
 
-.hero-copy {
+.auth-card {
+  width: min(560px, 100%);
   border-radius: 30px;
   padding: 28px;
+}
+
+.auth-title,
+h1 {
+  margin: 0;
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.auth-title {
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  margin-bottom: 12px;
 }
 
 .eyebrow {
@@ -63,29 +76,19 @@ body {
   color: var(--accent-2);
 }
 
-h1 {
-  margin: 0;
-  font-family: "Instrument Serif", serif;
-  font-size: clamp(3rem, 8vw, 5.4rem);
-  font-weight: 400;
-  line-height: 0.95;
-}
-
 .lede,
 .panel-heading p,
 .hero-card-copy,
 .upload-card small,
 .stat-subtitle,
 .empty-state,
-.connection-copy {
+.connection-copy,
+.auth-message,
+.auth-form span {
   color: var(--muted);
 }
 
-.lede {
-  max-width: 56ch;
-  font-size: 1.02rem;
-}
-
+.auth-toggle-row,
 .hero-actions,
 .connection-actions {
   display: flex;
@@ -93,8 +96,30 @@ h1 {
   flex-wrap: wrap;
 }
 
+.auth-toggle-row,
 .hero-actions {
   margin-top: 24px;
+}
+
+.auth-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.auth-form label {
+  display: grid;
+  gap: 8px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 13px 14px;
+  font: inherit;
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--ink);
 }
 
 button {
@@ -128,6 +153,52 @@ button:disabled {
   opacity: 0.55;
   cursor: not-allowed;
   transform: none;
+}
+
+button.full {
+  width: 100%;
+}
+
+.auth-message {
+  margin: 14px 0 0;
+}
+
+.page-shell {
+  width: min(1180px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 20px 0 48px;
+}
+
+.app-topbar {
+  border-radius: 22px;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+  margin-bottom: 22px;
+}
+
+.hero-copy {
+  border-radius: 30px;
+  padding: 28px;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 5.4rem);
+}
+
+.lede {
+  max-width: 56ch;
+  font-size: 1.02rem;
 }
 
 .hero-card {
@@ -410,9 +481,11 @@ th {
     padding-top: 18px;
   }
 
+  .auth-card,
   .hero-copy,
   .hero-card,
-  .panel {
+  .panel,
+  .app-topbar {
     border-radius: 22px;
     padding: 18px;
   }

@@ -10,7 +10,54 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page-shell">
+  <div id="authScreen" class="auth-screen">
+    <section class="auth-card">
+      <p class="eyebrow">PulseBoard Login</p>
+      <h1 class="auth-title">Protect your fitness dashboard.</h1>
+      <p class="lede">Sign in to access your Apple imports, Oura sync, and progress data. If this is your first time, create the first local account.</p>
+      <div class="auth-toggle-row">
+        <button id="showLoginBtn" class="primary">Sign in</button>
+        <button id="showRegisterBtn" class="secondary">Create account</button>
+      </div>
+      <form id="loginForm" class="auth-form">
+        <label>
+          <span>Email</span>
+          <input id="loginEmail" type="email" autocomplete="username" required>
+        </label>
+        <label>
+          <span>Password</span>
+          <input id="loginPassword" type="password" autocomplete="current-password" required>
+        </label>
+        <button type="submit" class="primary full">Sign in</button>
+      </form>
+      <form id="registerForm" class="auth-form hidden">
+        <label>
+          <span>Name</span>
+          <input id="registerName" type="text" autocomplete="name" required>
+        </label>
+        <label>
+          <span>Email</span>
+          <input id="registerEmail" type="email" autocomplete="username" required>
+        </label>
+        <label>
+          <span>Password</span>
+          <input id="registerPassword" type="password" autocomplete="new-password" required>
+        </label>
+        <button type="submit" class="primary full">Create account</button>
+      </form>
+      <p id="authMessage" class="auth-message">Checking session...</p>
+    </section>
+  </div>
+
+  <div id="appShell" class="page-shell hidden">
+    <header class="app-topbar">
+      <div>
+        <p class="eyebrow">PulseBoard</p>
+        <strong id="userGreeting">Signed out</strong>
+      </div>
+      <button id="logoutBtn" class="secondary">Log out</button>
+    </header>
+
     <header class="hero">
       <div class="hero-copy">
         <p class="eyebrow">Apple Fitness + Oura</p>
@@ -38,7 +85,7 @@
         <div class="panel-heading split-heading">
           <div>
             <h2>Import and sync</h2>
-            <p>Upload Apple workouts manually, then connect Oura to sync readiness and sleep directly from the API.</p>
+            <p>Upload Apple workouts manually, then connect Oura to sync readiness, workouts, and sessions directly from the API.</p>
           </div>
           <div class="oura-connection-card">
             <div>
