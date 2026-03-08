@@ -1,0 +1,4 @@
+# Ignore local secrets and runtime token caches
+oura-config.json
+token-store.json
+state-store.json

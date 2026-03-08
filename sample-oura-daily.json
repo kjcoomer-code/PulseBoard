@@ -1,0 +1,29 @@
+[
+  {
+    "date": "2026-02-16",
+    "readinessScore": 76,
+    "sleepScore": 81,
+    "activityScore": 84,
+    "hrv": 42,
+    "restingHeartRate": 56,
+    "steps": 11102
+  },
+  {
+    "date": "2026-02-17",
+    "readinessScore": 72,
+    "sleepScore": 79,
+    "activityScore": 78,
+    "hrv": 40,
+    "restingHeartRate": 57,
+    "steps": 9208
+  },
+  {
+    "date": "2026-03-07",
+    "readinessScore": 80,
+    "sleepScore": 82,
+    "activityScore": 76,
+    "hrv": 48,
+    "restingHeartRate": 54,
+    "steps": 9580
+  }
+]

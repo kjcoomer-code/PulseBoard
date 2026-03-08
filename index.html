@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PulseBoard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Apple Fitness + Oura</p>
+        <h1>PulseBoard</h1>
+        <p class="lede">
+          Bring workouts and recovery into one place to see how hard you train, how well you recover,
+          and whether your progress is sustainable.
+        </p>
+        <div class="hero-actions">
+          <button id="loadSampleBtn" class="primary">Load sample data</button>
+          <button id="clearDataBtn" class="secondary">Clear data</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <p class="hero-card-label">This week</p>
+        <div class="hero-score" id="heroScore">0</div>
+        <p class="hero-card-copy" id="heroSummary">
+          Import Apple workouts and Oura daily metrics to generate a training balance score.
+        </p>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel upload-panel">
+        <div class="panel-heading split-heading">
+          <div>
+            <h2>Import and sync</h2>
+            <p>Upload Apple workouts manually, then connect Oura to sync readiness and sleep directly from the API.</p>
+          </div>
+          <div class="oura-connection-card">
+            <div>
+              <strong>Oura connection</strong>
+              <div id="ouraConnectionStatus" class="connection-copy">Checking server status...</div>
+            </div>
+            <div class="connection-actions">
+              <button id="connectOuraBtn" class="primary">Connect Oura</button>
+              <button id="syncOuraBtn" class="secondary">Sync live data</button>
+              <button id="disconnectOuraBtn" class="secondary subtle">Disconnect</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="upload-grid">
+          <label class="upload-card">
+            <span>Apple workouts JSON</span>
+            <input id="appleInput" type="file" accept=".json,application/json">
+            <small>Expected shape: array of workouts with date, type, durationMinutes, calories.</small>
+          </label>
+
+          <label class="upload-card disabled-card">
+            <span>Oura daily JSON</span>
+            <input id="ouraInput" type="file" accept=".json,application/json">
+            <small>You can still import a JSON file, but the recommended path is live sync through OAuth.</small>
+          </label>
+        </div>
+
+        <div class="status-row">
+          <div>
+            <strong>Apple workouts:</strong>
+            <span id="appleStatus">No file loaded</span>
+          </div>
+          <div>
+            <strong>Oura daily data:</strong>
+            <span id="ouraStatus">No file loaded</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-grid" id="statsGrid"></section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Training balance</h2>
+          <p>Daily strain from workouts overlaid with recovery from Oura.</p>
+        </div>
+        <div id="chart" class="chart"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Progress milestones</h2>
+          <p>Simple goals that keep training volume and recovery in view.</p>
+        </div>
+        <div id="milestones" class="milestones"></div>
+      </section>
+
+      <section class="panel wide">
+        <div class="panel-heading">
+          <h2>Daily timeline</h2>
+          <p>Latest 21 merged days.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Workout</th>
+                <th>Minutes</th>
+                <th>Calories</th>
+                <th>Distance</th>
+                <th>Readiness</th>
+                <th>Sleep</th>
+                <th>HRV</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody id="timelineBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

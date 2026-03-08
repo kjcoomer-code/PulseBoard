@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2026-02-16",
+    "type": "Outdoor Run",
+    "durationMinutes": 44,
+    "activeCalories": 508,
+    "distanceMiles": 5.2,
+    "averageHeartRate": 152
+  },
+  {
+    "date": "2026-02-17",
+    "type": "Strength",
+    "durationMinutes": 38,
+    "activeCalories": 321,
+    "distanceMiles": 0,
+    "averageHeartRate": 118
+  },
+  {
+    "date": "2026-03-07",
+    "type": "Walk",
+    "durationMinutes": 56,
+    "activeCalories": 278,
+    "distanceMiles": 3.4,
+    "averageHeartRate": 96
+  }
+]
